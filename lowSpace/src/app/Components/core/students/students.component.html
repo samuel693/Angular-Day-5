@@ -1,0 +1,32 @@
+<br>
+<h1>Students Data</h1>
+<br>
+<table class="table table-success table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">Address</th>
+      <th scope="col">Class</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let s of students ; let i = index">
+      <th scope="row">{{s.id}}</th>
+      <td>{{s.name}}</td>
+      <td>{{s.age}}</td>
+      <td>{{s.address}}</td>
+      <td>{{s.class}}</td>
+      <td>
+        <i class="bi fs-5 text-dark bi-info-circle-fill cursor-pointer" [routerLink]="['/students/details',s.id]"></i> |
+        <i class="bi fs-5 text-success bi-pencil-fill cursor-pointer" [routerLink]="['/students/edit',s.id]"></i> |
+        <i class="bi fs-5 text-danger bi-person-x-fill cursor-pointer" (click)="delete(s.id)"></i>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<br>
+<button class="btn btn-success " [routerLink]="['/students/new']">Add New Student</button>
